@@ -17,12 +17,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.filereader.ui.theme.FileReaderTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
+            FileReaderTheme {
                 ReaderScreen()
             }
         }
@@ -83,8 +84,7 @@ fun ReaderScreen(vm: FileViewModel = viewModel()) {
             if (vm.textContent.isNotEmpty()) {
                 Text(
                     text = vm.textContent,
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp
+                    style = MaterialTheme.typography.bodyLarge
                 )
             }
         }
